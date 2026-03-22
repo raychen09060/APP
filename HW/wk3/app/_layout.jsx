@@ -1,4 +1,4 @@
-import { Stack, router } from "expo-router";
+import { Stack, router, UseLocalParams } from "expo-router";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useState } from "react";
 
@@ -19,13 +19,6 @@ export default function Layout() {
                             </View>
                         </TouchableOpacity>
                     ),
-                    headerRight: () => (
-                        <TouchableOpacity onPress={() => setIsBookmarked(!isBookmarked)}>
-                            <View style={styles.icon_container}>
-                                <Image source={isBookmarked ? require('../images/icon_nav_bookmark_actived.png') : require('../images/icon_bookmark.png')} style={styles.icon} />
-                            </View>
-                        </TouchableOpacity>
-                    ),
                 }}
             />
         </Stack>
@@ -37,8 +30,8 @@ const styles = StyleSheet.create({
         display: "flex",
         width: 40,
         height: 40,
-        alignItems: "center",
-        justifyContent: "center",
+/*         alignItems: "center",
+        justifyContent: "center", */
     },
     icon:{
         width: "80%",

@@ -58,7 +58,17 @@ export const NewSec_books = [
 },
 ];
 
+export const WishlistSec_books = [
+    
+];
+
 export const BookSec = [
-{id: "Popular", data: PopularSec_books},
-{id: "New", data: NewSec_books},
+{
+    id: "Popular",
+    data: PopularSec_books
+},
+{
+    id: "New",
+    data: NewSec_books
+},
 ];
