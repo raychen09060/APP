@@ -1,26 +1,30 @@
-import { FlatList, StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, Button, Pressable } from 'react-native';
+import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { pickImage } from '../components/ImagePicker';
 import Header from '../components/Header';
-import PopularSec from '../components/PopularSec';
-import NewSec from '../components/NewSec';
-import Footer from '../components/Footer';
-import { BookSec } from '../data/books';
 
-export default function BookStore() {
+
+export default function Home() {
+  const [photo, setPhoto] = React.useState(null);
+  const handleSelectPhoto = async () => {
+    const base64String = await pickImage();
+    setPhoto(base64String);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <Header/>
-      <FlatList
-        data={ BookSec }
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <View style={styles.section_container}>
-            {item.id === "Popular" ? <PopularSec book_data={item.data}/> : <NewSec book_data={item.data}/>}
-          </View>
-        )}
-      />
-      <Footer page="home"/>
+      <View style={styles.gallery_container}>
+        <Pressable style={styles.upload_button} onPress={handleSelectPhoto}>
+          <Text style={styles.upload_button_text}>Upload Images</Text>
+        </Pressable>
+        <View style={styles.image_container}>
+          {photo && (
+            <Image source={{ uri: photo }} resizeMode="cover" />
+          )}
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
@@ -30,11 +34,30 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
   },
-  section_container: {
-    width: "100%",
-    marginBottom: 10,
-/*     borderWidth: 2,
-    borderColor: "#ff0000", */
+  gallery_container: {
+    flex: 1,
+    alignItems: "center",
   },
+  upload_button: {
+    width: 200,
+    height: 40,
+    backgroundColor: "#ffffff",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 20,
+    borderWidth: 2,
+    borderColor: "#000000",
+    borderRadius: 20,
+  },
+  upload_button_text: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  image_container: {
+    width: 300,
+    height: 200,
+    backgroundColor: "#e0e0e0",
+    borderRadius: 30,
+    },
 });
 
