@@ -47,14 +47,15 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "acbbfe7a-fcfe-4acf-a160-210628fa4953"
+        "projectId": "d6169801-e529-49a3-9744-59186f1cd96d"
       }
     },
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/acbbfe7a-fcfe-4acf-a160-210628fa4953"
-    }
+      "url": "https://u.expo.dev/d6169801-e529-49a3-9744-59186f1cd96d"
+    },
+    "owner": "raychen09060"
   }
 }
