@@ -10,10 +10,10 @@ const pickImage = async () => {
 
     let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ['images'],
-        allowsEditing: true, // 開啟裁剪功能
+        allowsEditing: true,
         aspect: [4, 3],
-        quality: 0.4,        // 壓縮品質
-        base64: true,        // 要求回傳 Base64 字串
+        quality: 1,
+        base64: true,
     });
 
     if (!result.canceled) {
