@@ -21,7 +21,7 @@ export default function Home() {
         </Pressable>
         <View style={styles.image_container}>
           {photo && (
-            <Image source={{ uri: photo }} resizeMode="cover" />
+            <Image source={{ url: photo }} resizeMode="cover" />
           )}
         </View>
       </View>
