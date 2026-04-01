@@ -24,7 +24,7 @@ export default function Home() {
             <Text style={styles.upload_button_text}>Clear</Text>
           </Pressable>
         </View>
-        <ScrollView style={styles.images_container}>
+        <ScrollView style={styles.images_container} showsVerticalScrollIndicator={false}>
           {photos.map((photo, index) => (
             <Image 
               key={index}
